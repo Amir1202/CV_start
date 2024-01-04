@@ -8,8 +8,8 @@ hands = mp.solutions.hands.Hands(static_image_mode=False,
                                 min_tracking_confidence=0.5,
                                 min_detection_confidence=0.5)
 
-mpDraw = mp.solutions.drawing_utils
 
+mpDraw = mp.solutions.drawing_utils
 while True:
     _, img = cap.read()
     result = hands.process(img)
@@ -22,7 +22,6 @@ while True:
                 cv2.circle(img, (cx, cy), 25, (255, 0, 0), cv2.FILLED)
                 print(cx)
         mpDraw.draw_landmarks(img, result.multi_hand_landmarks[0], mp.solutions.hands.HAND_CONNECTIONS)
-
     cv2.imshow("imshot", img)
     if cv2.waitKey(1) == ord('q'):  # Выход на 'q'
         break
